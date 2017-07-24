@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean name="complexBean" class="DataClass">
+    <property name="complexList">
+        <list>
+            <ref bean="list"></ref>
+            <ref bean="list1"></ref>
+        </list>
+    </property>
+    <property name="complexSet">
+        <set>
+            <ref bean="list"></ref>
+            <ref bean="list1"></ref>
+            <ref bean="list1"></ref>
+        </set>
+    </property>
+    <property name="complexMap">
+        <map>
+            <entry key="1" value-ref="list"></entry>
+            <entry key="2" value-ref="list1"></entry>
+        </map>
+    </property>
+</bean>
+    <bean id="list" class="Complex">
+        <property name="imag" value="12.0"></property>
+        <property name="real" value="8.5"></property>
+    </bean>
+    <bean id="list1" class="Complex">
+        <property name="imag" value="12.3"></property>
+        <property name="real" value="8.9"></property>
+    </bean>
+
+</beans>
